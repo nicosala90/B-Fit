@@ -20,7 +20,7 @@ public class UserController {
         healthState.addUser(user.getAge(), user.getGender(), user.getWeight(), user.getHeight());
     }
 
-    @GetMapping("/{id}}")
+    @GetMapping("/{id}")
     public double getBMI(@PathVariable int id){
         return healthState.getUserById(id).calculateBMI();
     }
