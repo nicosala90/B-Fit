@@ -7,6 +7,7 @@ import java.util.List;
 
 public class User {
 
+    private int id;
     private int age;
     private Gender gender;
     private double weight;
@@ -14,7 +15,8 @@ public class User {
     private Calculator calculator;
     private List<Double> BMIResults;
 
-    public User(int age, Gender gender, double weight, double height, Calculator calculator) {
+    public User(int id, int age, Gender gender, double weight, double height, Calculator calculator) {
+        this.id = id;
         this.age = age;
         this.gender = gender;
         this.weight = weight;
@@ -24,6 +26,7 @@ public class User {
     }
 
     public User(int age, Gender gender, double weight, double height) {
+        this.id = 1;
         this.age = age;
         this.gender = gender;
         this.weight = weight;
@@ -35,6 +38,10 @@ public class User {
     }
     public void addBMIResult(){
         BMIResults.add(calculateBMI());
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getAge() {
