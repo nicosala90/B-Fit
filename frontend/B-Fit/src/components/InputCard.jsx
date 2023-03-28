@@ -35,7 +35,14 @@ function InputCard() {
     //check user input validation
     function submitUserData(user) {
     console.log(user)
-    
+        fetch('/user/actual-user', {
+            Method: 'POST',
+            Headers: {
+                'Content-Type': 'application/json'
+            },
+            Body: JSON.stringify(user)
+        })
+          
     }
     
     return (
