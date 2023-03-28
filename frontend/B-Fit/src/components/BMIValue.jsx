@@ -2,18 +2,19 @@ import { useEffect, useState } from "react"
 
 function BMIValue(){
 
-    const[value, setValue] = useState(0);
+    const[value, setValue] = useState(null);
 
     useEffect(() => {
         fetch('/user/1')
-        .then(res => res.json())
-        .then(valueOfBMI =>{
-            setValue(valueOfBMI)
+        .then(res => res.text())
+        .then(valueOfBMI => {
+            setValue(parseFloat(valueOfBMI))
         })
     }, [])
 
     return (
         <div className="BMI-value">
+            <p>Your calculated Body Mass Index is:</p>
             {value}
         </div>
     )

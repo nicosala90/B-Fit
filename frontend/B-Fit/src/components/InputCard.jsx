@@ -4,9 +4,9 @@ function InputCard() {
 
     const [user, setUser] = useState({
         "gender": "",
-        "age": 0,
-        "weight": 0,
-        "height": 0
+        "age": null,
+        "weight": null,
+        "height": null
     })
 
     function handleGender(e) {
@@ -43,14 +43,19 @@ function InputCard() {
             },
             body: JSON.stringify(user)
         })
-
+        setUser({
+            "gender": "",
+            "age": null,
+            "weight": null,
+            "height": null
+        });
     }
 
     return (
         <div className="input-table">
-            <div className="input-field">
+            <div className="input-fields">
                 <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
-                    <option value="">--Choose a gender--</option>
+                    <option value="">-Choose a gender-</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -59,7 +64,7 @@ function InputCard() {
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
                 <button onClick={() => submitUserData(user)}>Submit</button>
             </div>
-            <BMIValue/>
+            <BMIValue />
         </div>
     )
 }
