@@ -15,22 +15,14 @@ public class User {
     private Calculator calculator;
     private List<Double> BMIResults;
 
-    public User(int id, int age, Gender gender, double weight, double height, Calculator calculator) {
-        this.id = id;
-        this.age = age;
-        this.gender = gender;
-        this.weight = weight;
-        this.height = height;
-        this.calculator = calculator;
-        this.BMIResults = new ArrayList<>();
-    }
-
     public User(int age, Gender gender, double weight, double height) {
         this.id = 1;
         this.age = age;
         this.gender = gender;
         this.weight = weight;
         this.height = height;
+        this.calculator = new Calculator();
+        this.BMIResults = new ArrayList<>();
     }
 
     public double calculateBMI(){
