@@ -19,4 +19,5 @@ public class HealthState {
     public User getUserById(int id){
         return users.stream().filter(user -> user.getId() == id).findFirst().orElseThrow();
     }
+
 }
