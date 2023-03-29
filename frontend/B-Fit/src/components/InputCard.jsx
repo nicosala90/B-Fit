@@ -9,7 +9,7 @@ function InputCard() {
         "weight": 0,
         "height": 0
     })
-    const [show, setShow] = useState(false);
+    const [value, setValue] = useState(0);
 
     function handleGender(e) {
         setUser({
@@ -37,7 +37,7 @@ function InputCard() {
     }
     //check user input validation
     function submitUserData(user) {
-        console.log(user);
+        
         fetch('/api/user/actual-user', {
             method: 'POST',
             headers: {
@@ -45,13 +45,16 @@ function InputCard() {
             },
             body: JSON.stringify(user)
         })
+        .then(res => res.json())
+        .then(res => setValue(res));
+
         setUser({
             "gender": "",
-            "age": "",
-            "weight": "",
-            "height": ""
+            "age": 0,
+            "weight": 0,
+            "height": 0
         });
-        setShow(true);
+       
     }
 
     return (
@@ -67,7 +70,7 @@ function InputCard() {
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
                 <button onClick={() => { submitUserData(user); }}>Submit</button>
             </div>
-            <BMIValue show={show} setShow={setShow}/>
+            <BMIValue value={value}/>
         </div>
     )
 }
