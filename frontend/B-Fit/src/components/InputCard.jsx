@@ -5,9 +5,9 @@ function InputCard() {
 
     const [user, setUser] = useState({
         "gender": "",
-        "age": 0,
-        "weight": 0,
-        "height": 0
+        "age": "",
+        "weight": "",
+        "height": ""
     })
     const [value, setValue] = useState(0);
 
@@ -37,22 +37,28 @@ function InputCard() {
     }
     //check user input validation
     function submitUserData(user) {
+        const userData = {
+            ...user,
+            age: parseFloat(user.age),
+            weight: parseFloat(user.weight),
+            height: parseFloat(user.height)
+          };
         
         fetch('/api/user/actual-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(userData)
         })
         .then(res => res.json())
         .then(res => setValue(res));
 
         setUser({
             "gender": "",
-            "age": 0,
-            "weight": 0,
-            "height": 0
+            "age": "",
+            "weight": "",
+            "height": ""
         });
        
     }
