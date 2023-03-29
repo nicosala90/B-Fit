@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import InputCard from './components/InputCard'
+import SemiCircleIndicator from './components/SemiCircleIndicator'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
      <InputCard/>
+     <SemiCircleIndicator/>
     </div>
   )
 }
