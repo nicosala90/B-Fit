@@ -16,14 +16,12 @@ public class UserController {
     }
 
     @PostMapping("/actual-user")
-        public void addUser(@RequestBody User user){
-        healthState.addUser(user.getAge(), user.getGender(), user.getWeight(), user.getHeight());
+        public double addUser(@RequestBody User user){
+        return user.calculateBMI();
     }
 
     @GetMapping("/{id}")
     public double getBMI(@PathVariable int id){
         return healthState.getUserById(id).calculateBMI();
     }
-
-
 }

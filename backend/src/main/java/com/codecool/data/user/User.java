@@ -28,7 +28,7 @@ public class User {
     public double calculateBMI(){
         return calculator.BMICalculator(weight, height);
     }
-    public void addBMIResult(){
+    public void addBMIResult() {
         BMIResults.add(calculateBMI());
     }
 
@@ -50,5 +50,16 @@ public class User {
 
     public double getHeight() {
         return height;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                "age=" + age +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
     }
 }

@@ -5,11 +5,11 @@ function InputCard() {
 
     const [user, setUser] = useState({
         "gender": "",
-        "age": 0,
-        "weight": 0,
-        "height": 0
+        "age": "",
+        "weight": "",
+        "height": ""
     })
-    const [show, setShow] = useState(false);
+    const [value, setValue] = useState(0);
 
     function handleGender(e) {
         setUser({
@@ -37,23 +37,36 @@ function InputCard() {
     }
     //check user input validation
     function submitUserData(user) {
+
         if (user["gender"] !== "" && user["age"] !== "" && user["weight"] !== "" && user["height"] !== "") {
-            fetch('/api/user/actual-user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            })
-            setUser({
-                "gender": "",
-                "age": 0,
-                "weight": 0,
-                "height": 0
-            });
-            setShow(true);
-        }
-        else console.log(user);
+
+        const userData = {
+            ...user,
+            age: parseFloat(user.age),
+            weight: parseFloat(user.weight),
+            height: parseFloat(user.height)
+          };
+        
+        fetch('/api/user/actual-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(res => res.json())
+        .then(res => setValue(res));
+
+        setUser({
+            "gender": "",
+            "age": "",
+            "weight": "",
+            "height": ""
+        });
+       
+    }
+    }
+
 
     }
     return (
@@ -69,7 +82,7 @@ function InputCard() {
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
                 <button id="submitBtn" onClick={() => { submitUserData(user); }}>Submit</button>
                 <div className="BMI-value">
-                    <BMIValue show={show} setShow={setShow} />
+                   <BMIValue value={value}/>
                 </div>
             </div>
         </div>
