@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 
-function BMIValue(){
+function BMIValue({ show, setShow }) {
 
-    const[value, setValue] = useState("");
+    const [value, setValue] = useState("");
+
 
     useEffect(() => {
-        fetch('/api/user/1')
-        .then(res => res.text())
-        .then(valueOfBMI => {
-            setValue(parseFloat(valueOfBMI))
-        })
-    }, [])
+        if (show) {
+            fetch('/api/user/1')
+                .then(res => res.text())
+                .then(valueOfBMI => {
+                    setValue(parseFloat(valueOfBMI))
+                })
+                setShow(false);
+        }
+    }, [show])
 
     return (
         <div className="BMI-value">

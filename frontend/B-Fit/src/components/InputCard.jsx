@@ -5,10 +5,11 @@ function InputCard() {
 
     const [user, setUser] = useState({
         "gender": "",
-        "age": "",
-        "weight": "",
-        "height": ""
+        "age": 0,
+        "weight": 0,
+        "height": 0
     })
+    const [show, setShow] = useState(false);
 
     function handleGender(e) {
         setUser({
@@ -50,6 +51,7 @@ function InputCard() {
             "weight": "",
             "height": ""
         });
+        setShow(true);
     }
 
     return (
@@ -63,9 +65,9 @@ function InputCard() {
                 <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
                 <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
-                <button onClick={() => submitUserData(user)}>Submit</button>
+                <button onClick={() => { submitUserData(user); }}>Submit</button>
             </div>
-            <BMIValue/>
+            <BMIValue show={show} setShow={setShow}/>
         </div>
     )
 }
