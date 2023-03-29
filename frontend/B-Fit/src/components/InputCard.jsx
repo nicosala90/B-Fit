@@ -40,35 +40,33 @@ function InputCard() {
 
         if (user["gender"] !== "" && user["age"] !== "" && user["weight"] !== "" && user["height"] !== "") {
 
-        const userData = {
-            ...user,
-            age: parseFloat(user.age),
-            weight: parseFloat(user.weight),
-            height: parseFloat(user.height)
-          };
-        
-        fetch('/api/user/actual-user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        })
-        .then(res => res.json())
-        .then(res => setValue(res));
+            const userData = {
+                ...user,
+                age: parseFloat(user.age),
+                weight: parseFloat(user.weight),
+                height: parseFloat(user.height)
+            };
 
-        setUser({
-            "gender": "",
-            "age": "",
-            "weight": "",
-            "height": ""
-        });
-       
-    }
+            fetch('/api/user/actual-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(res => res.json())
+                .then(res => setValue(res));
+
+            setUser({
+                "gender": "",
+                "age": "",
+                "weight": "",
+                "height": ""
+            });
+
+        }
     }
 
-
-    }
     return (
         <div className="input-table">
             <div className="input-fields">
@@ -82,7 +80,7 @@ function InputCard() {
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
                 <button id="submitBtn" onClick={() => { submitUserData(user); }}>Submit</button>
                 <div className="BMI-value">
-                   <BMIValue value={value}/>
+                    <BMIValue value={value} />
                 </div>
             </div>
         </div>
