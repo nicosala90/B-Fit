@@ -37,7 +37,7 @@ function InputCard() {
     //check user input validation
     function submitUserData(user) {
         console.log(user);
-        fetch('/user/actual-user', {
+        fetch('/api/user/actual-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -57,15 +57,15 @@ function InputCard() {
             <div className="input-fields">
                 <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
                     <option value="">-Choose a gender-</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
                 </select>
                 <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
                 <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
                 <button onClick={() => submitUserData(user)}>Submit</button>
             </div>
-            <BMIValue />
+            <BMIValue/>
         </div>
     )
 }

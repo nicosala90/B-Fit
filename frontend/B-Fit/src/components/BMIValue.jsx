@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 
 function BMIValue(){
 
-    const[value, setValue] = useState(null);
+    const[value, setValue] = useState("");
 
     useEffect(() => {
-        fetch('/user/1')
+        fetch('/api/user/1')
         .then(res => res.text())
         .then(valueOfBMI => {
             setValue(parseFloat(valueOfBMI))
