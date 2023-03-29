@@ -1,12 +1,13 @@
 import { useState } from "react";
 import BMIValue from "./BMIValue";
+
 function InputCard() {
 
     const [user, setUser] = useState({
         "gender": "",
-        "age": null,
-        "weight": null,
-        "height": null
+        "age": "",
+        "weight": "",
+        "height": ""
     })
 
     function handleGender(e) {
@@ -35,7 +36,7 @@ function InputCard() {
     }
     //check user input validation
     function submitUserData(user) {
-
+        console.log(user);
         fetch('/user/actual-user', {
             method: 'POST',
             headers: {
@@ -45,9 +46,9 @@ function InputCard() {
         })
         setUser({
             "gender": "",
-            "age": null,
-            "weight": null,
-            "height": null
+            "age": "",
+            "weight": "",
+            "height": ""
         });
     }
 
