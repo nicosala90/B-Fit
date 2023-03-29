@@ -37,6 +37,9 @@ function InputCard() {
     }
     //check user input validation
     function submitUserData(user) {
+
+        if (user["gender"] !== "" && user["age"] !== "" && user["weight"] !== "" && user["height"] !== "") {
+
         const userData = {
             ...user,
             age: parseFloat(user.age),
@@ -62,7 +65,10 @@ function InputCard() {
         });
        
     }
+    }
 
+
+    }
     return (
         <div className="input-table">
             <div className="input-fields">
@@ -74,9 +80,11 @@ function InputCard() {
                 <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
                 <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
                 <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
-                <button onClick={() => { submitUserData(user); }}>Submit</button>
+                <button id="submitBtn" onClick={() => { submitUserData(user); }}>Submit</button>
+                <div className="BMI-value">
+                   <BMIValue value={value}/>
+                </div>
             </div>
-            <BMIValue value={value}/>
         </div>
     )
 }
