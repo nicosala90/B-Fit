@@ -69,24 +69,36 @@ function InputCard() {
     }
 
     return (
-        <div className="input-table">
-            <div className="input-fields">
-                <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
-                    <option value="">-Choose a gender-</option>
-                    <option value="MALE">Male</option>
-                    <option value="FEMALE">Female</option>
-                </select>
-                <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
-                <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
-                <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
-                <button id="submitBtn" onClick={() => { submitUserData(user); }}>Submit</button>
-                <div className="BMI-value">
-                    <BMIValue value={value} />
+        <div className="container">
+            <div className="input-table">
+                <div className="input-fields">
+                    <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
+                        <option value="">-Choose a gender-</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                    </select>
+                    <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
+                    <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
+                    <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
+                    <button id="submitBtn" onClick={() => { submitUserData(user); }}>BMI calculator</button>
+
+                    {value > 0
+                        ?
+                        <div className="BMI-value">
+                            <BMIValue value={value} />
+                        </div>
+                        : <></>
+
+                    }
                 </div>
+
             </div>
-            <div>
-                <SemiCircleIndicator value={value}/>
-            </div>
+            {value > 0 ?
+                <div className="result-table">
+                    <SemiCircleIndicator value={value} />
+                </div>
+                : <></>
+            }
         </div>
     )
 }

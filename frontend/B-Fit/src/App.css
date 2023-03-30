@@ -14,27 +14,56 @@
   color: #888;
 }
 
+.container{
+  position: absolute;
+  left: 50px;
+  top: 100px;
+  width: 600;
+  height: 600;
+  display: flex;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]
+{
+    font-size:15px;
+      -moz-appearance: textfield;
+}
+
 .input-table{
-  background-color: aquamarine;
-  width: 200px;
-  height: 300px;
-  border: 2px solid white;
-  border-radius: 10px;
+  max-width: 200px;
+  /* border: solid 5px black; */
   display: flex;
 }
 
 .input-fields{
   flex-direction: column;
+  font-size: 20px;
+  background-color: lightskyblue;
+  border: 2px solid rgb(152, 30, 30);
   align-items: flex-start;
-  border: 2px solid rgb(158, 158, 217);
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px;
+  margin: 10px;
+
+}
+.result-table{
+  background-color: rgb(196, 211, 182);
+  color: wheat;
+  border: solid 5px black;
+  border-radius: 20px;
+  padding: 1px;
 }
 
 #submitBtn{
   background-color: rgb(97, 156, 157);
   border: 1px solid rgb(40, 40, 122);
-  border-radius: 5px;
-  padding: 1px;
+  border-radius: 25px;
+  padding: 5px;
   margin-top: 30px;
 }

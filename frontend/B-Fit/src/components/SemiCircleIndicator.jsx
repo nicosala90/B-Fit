@@ -20,7 +20,7 @@ function SemiCircleIndicator({value}) {
         ringWidth={30}
         currentValueText="Actual health state"
         segments={5}
-        needleTransitionDuration={5000}
+        needleTransitionDuration={9000}
         needleTransition="easeElastic"
         customSegmentStops={[10, 18.5, 24.9, 29.9, 39.9, 50]}
         segmentColors={[
