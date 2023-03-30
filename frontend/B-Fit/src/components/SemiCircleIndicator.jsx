@@ -12,7 +12,7 @@ function SemiCircleIndicator(){
     return(
         <div>
             <ReactSpeedometer
-            value={40}
+            value={300}
             width={600}
             currentValueText="BMI"
             customSegmentLabels={[
