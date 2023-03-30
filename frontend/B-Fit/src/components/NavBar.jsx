@@ -1,12 +1,15 @@
 
-function NavBar(){
+function NavBar() {
 
     return (
-        <div className="nav-bar">
-            <img className="logo" src="/logo-text.png" alt="B-Fit" width="100" height="100"></img>
-            <h1>Home</h1>
-            <h1>About</h1>
-            <h1>Contact</h1>
+        <div id="nav-bar">
+            <div id="img-logo">
+                <img className="logo" src="/logo-text.png" alt="B-Fit" width="100" height="100"></img>
+                <h1>Home</h1>
+            </div>
+            <div id="about-contact">
+                <span><h1>About Contact</h1></span>
+            </div>
         </div>
     )
 }

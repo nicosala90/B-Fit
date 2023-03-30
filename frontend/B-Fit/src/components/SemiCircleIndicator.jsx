@@ -16,7 +16,7 @@ function SemiCircleIndicator({value}) {
         minValue={10}
         maxValue={50}
         width={800}
-        height={500}
+        height={450}
         ringWidth={30}
         currentValueText="Actual health state"
         segments={5}

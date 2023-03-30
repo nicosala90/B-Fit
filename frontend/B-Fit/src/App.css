@@ -1,10 +1,13 @@
+body{
+  background-color: rgb(63, 69, 79);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
 
 .card {
   padding: 2em;
@@ -13,11 +16,36 @@
 .read-the-docs {
   color: #888;
 }
+#nav-bar {
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
-.container{
+#nav-bar > div{
+  margin-left: 10px;
+  display: flex;
+}
+
+#footer {
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+}
+
+.container {
+  background-color: rgb(63, 69, 79);
+  color: white;
   position: absolute;
   left: 50px;
-  top: 100px;
+  top: 120px;
   width: 600;
   height: 600;
   display: flex;
@@ -29,41 +57,36 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="number"]
-{
-    font-size:15px;
-      -moz-appearance: textfield;
+input[type="number"] {
+  font-size: 15px;
+  -moz-appearance: textfield;
 }
 
-.input-table{
-  max-width: 200px;
-  /* border: solid 5px black; */
-  display: flex;
+.input-table {
+  width: 20%;
+  width: 250px;
 }
 
-.input-fields{
-  flex-direction: column;
-  font-size: 20px;
-  background-color: lightskyblue;
-  border: 2px solid rgb(152, 30, 30);
+.input-fields {
+  font-size: 25px;
+  border: solid 5px sandybrown;
   align-items: flex-start;
   border-radius: 15px;
   padding: 10px;
   margin: 10px;
-
 }
-.result-table{
-  background-color: rgb(196, 211, 182);
-  color: wheat;
-  border: solid 5px black;
+.result-table {
+  max-width: 800px;
+  background-color: rgb(247, 249, 245);
+  border: solid 4px sandybrown;
   border-radius: 20px;
-  padding: 1px;
 }
 
-#submitBtn{
+#submitBtn {
+  font-size: 15px;
   background-color: rgb(97, 156, 157);
-  border: 1px solid rgb(40, 40, 122);
-  border-radius: 25px;
-  padding: 5px;
+  border: solid 5px sandybrown;
+  border-radius: 10px;
+  padding: 4px;
   margin-top: 30px;
 }

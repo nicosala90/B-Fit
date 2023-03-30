@@ -80,7 +80,7 @@ function InputCard() {
                     <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
                     <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
                     <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
-                    <button id="submitBtn" onClick={() => { submitUserData(user); }}>BMI calculator</button>
+                    <button id="submitBtn" onClick={() => { submitUserData(user); }}>Calculate</button>
 
                     {value > 0
                         ?
