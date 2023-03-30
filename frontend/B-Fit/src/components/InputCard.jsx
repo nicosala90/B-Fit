@@ -36,7 +36,7 @@ function InputCard() {
             height: e.target.value
         })
     }
-    //check user input validation
+    
     function submitUserData(user) {
 
         if (user["gender"] !== "" && user["age"] !== "" && user["weight"] !== "" && user["height"] !== "") {

@@ -94,7 +94,7 @@ input[type="number"] {
 #BMI-value{
   font-size: 30px;
   font-weight:900;
-  color: red;
+  color: rgb(243, 117, 49);
   border: solid 2px sandybrown;
   border-radius: 10px;
   margin: 20px;
