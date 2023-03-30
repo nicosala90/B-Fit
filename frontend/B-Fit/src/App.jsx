@@ -1,15 +1,15 @@
-import { useState } from 'react'
 import './App.css'
+import Footer from './components/Footer'
 import InputCard from './components/InputCard'
-import SemiCircleIndicator from './components/SemiCircleIndicator'
-
+import NavBar from './components/NavBar'
 function App() {
 
 
   return (
     <div className="App">
+      <NavBar/>
      <InputCard/>
-    
+     <Footer/>
     </div>
   )
 }
