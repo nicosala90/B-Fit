@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from './components/Footer'
 import InputCard from './components/InputCard'
 import NavBar from './components/NavBar'
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <NavBar/>
      <InputCard/>
+     <Footer/>
     </div>
   )
 }
