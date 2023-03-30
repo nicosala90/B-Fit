@@ -1,6 +1,6 @@
 import ReactSpeedometer from "react-d3-speedometer"
 
-function SemiCircleIndicator() {
+function SemiCircleIndicator({value}) {
   /*    Age	Underweight	Normal weight	Overweight	Obese	Severely obese
      18-24	<18.5		18.5-24.9	25-29.9	3	0-39.9		≥40
      25-34	<19		19-24.9		25-29.9		30-39.9		≥40
@@ -12,10 +12,17 @@ function SemiCircleIndicator() {
   return (
     <div>
       <ReactSpeedometer
-        value={300}
-        width={600}
-        currentValueText="BMI"
+        value={value > 40 ? value = 50 : value < 10 ? value = 10 : value}
+        minValue={10}
+        maxValue={50}
+        width={800}
+        height={500}
+        ringWidth={30}
+        currentValueText="Actual health state"
         segments={5}
+        needleTransitionDuration={5000}
+        needleTransition="easeElastic"
+        customSegmentStops={[10, 18.5, 24.9, 29.9, 39.9, 50]}
         segmentColors={[
           "#87CEFA",
           "#00FF00",
@@ -26,31 +33,31 @@ function SemiCircleIndicator() {
         customSegmentLabels={[
           {
             text: "Underweight",
-            position: "INSIDE",
+            position: "OUTSIDE",
             color: "#555",
             fontSize: "19px",
           },
           {
             text: "Normal weight",
-            position: "INSIDE",
+            position: "OUTSIDE",
             color: "#555",
             fontSize: "19px"
           },
           {
             text: "Overweight",
-            position: "INSIDE",
+            position: "OUTSIDE",
             color: "#555",
             fontSize: "19px",
           },
           {
             text: "Obese",
-            position: "INSIDE",
+            position: "OUTSIDE",
             color: "#555",
             fontSize: "19px"
           },
           {
             text: "Severely obese",
-            position: "INSIDE",
+            position: "OUTSIDE",
             color: "#555",
             fontSize: "19px"
           },

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BMIValue from "./BMIValue";
+import SemiCircleIndicator from "./SemiCircleIndicator";
 
 function InputCard() {
 
@@ -82,6 +83,9 @@ function InputCard() {
                 <div className="BMI-value">
                     <BMIValue value={value} />
                 </div>
+            </div>
+            <div>
+                <SemiCircleIndicator value={value}/>
             </div>
         </div>
     )
