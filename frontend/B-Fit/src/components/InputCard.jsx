@@ -70,8 +70,8 @@ function InputCard() {
 
     return (
         <div className="container">
-            <div className="input-table">
-                <div className="input-fields">
+            <div id="input-table">
+                <div id="input-fields">
                     <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
                         <option value="">-Choose a gender-</option>
                         <option value="MALE">Male</option>
@@ -84,7 +84,7 @@ function InputCard() {
 
                     {value > 0
                         ?
-                        <div className="BMI-value">
+                        <div>
                             <BMIValue value={value} />
                         </div>
                         : <></>
@@ -94,7 +94,7 @@ function InputCard() {
 
             </div>
             {value > 0 ?
-                <div className="result-table">
+                <div id="result-table">
                     <SemiCircleIndicator value={value} />
                 </div>
                 : <></>
