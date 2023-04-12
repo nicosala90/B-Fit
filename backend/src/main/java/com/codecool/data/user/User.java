@@ -1,12 +1,11 @@
 package com.codecool.data.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -21,6 +20,9 @@ public class User {
     private Gender gender;
     private double weight;
     private double height;
+
+    @OneToMany(mappedBy = "user")
+    private List<BMI> bmiValues;
 
     public User(int age, Gender gender, double weight, double height) {
         this.age = age;
