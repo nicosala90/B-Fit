@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -42,4 +45,11 @@ public class UserService {
         return BMIResult;
     }
 
+    public List<BMI> getBMIValuesSortByDate(Long id){
+        User user = userRepository.findById(id).orElseThrow(RuntimeException::new);
+        return user.getBmiValues()
+                .stream()
+                .sorted(Comparator.comparing(BMI::getLocalDate))
+                .collect(Collectors.toList());
+    }
 }
