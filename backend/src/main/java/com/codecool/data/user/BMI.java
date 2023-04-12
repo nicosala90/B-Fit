@@ -23,13 +23,13 @@ public class BMI {
     private double bmiValues;
     private LocalDate localDate;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    public BMI(Long id, double bmiValues, LocalDate localDate, User user) {
+    public BMI(Long id, double bmiValues, LocalDate localDate, Client client) {
         this.id = id;
         this.bmiValues = bmiValues;
         this.localDate = localDate;
-        this.user = user;
+        this.client = client;
     }
 }

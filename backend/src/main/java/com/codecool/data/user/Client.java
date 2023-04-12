@@ -13,32 +13,34 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private int age;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private double weight;
     private double height;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "client")
     private List<BMI> bmiValues = new ArrayList<>();
 
-    public User(int age, Gender gender, double weight, double height) {
+    public Client(int age, Gender gender, double weight, double height) {
         this.age = age;
         this.gender = gender;
         this.weight = weight;
         this.height = height;
     }
-    public void addCalculatedBMI(BMI bmi){
+
+    public void addCalculatedBMI(BMI bmi) {
         bmiValues.add(bmi);
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Client{" +
                 "id=" + id +
                 ", age=" + age +
                 ", gender=" + gender +
