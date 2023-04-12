@@ -15,14 +15,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/calculated-BMI")
+  /*  @PostMapping("/calculated-BMI")
     public double addUser(@RequestBody User user) {
         return user.calculateBMI();
-    }
+    }*/
 
-    @PostMapping("/registeredBMI/{id}")
-    public double getBMI1(@PathVariable Long id) {
-        return userService.calculateBMI1(id);
+    @PostMapping("/registeredBMI/")
+    public double getBMI1(@RequestBody User user) {
+        return userService.calculateBMI1(user);
     }
     @PostMapping("/unregisteredBMI")
     public double getBMI2(@RequestBody Double weight, Double height) {

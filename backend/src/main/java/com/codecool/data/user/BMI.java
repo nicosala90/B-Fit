@@ -1,10 +1,8 @@
 package com.codecool.data.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +18,7 @@ public class BMI {
 
     @Id
     @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private double bmiValues;
     private LocalDate localDate;

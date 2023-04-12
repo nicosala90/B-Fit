@@ -24,25 +24,14 @@ public class RegisteredUser extends User {
     private String password;
     private String emailAddress;
     private String address;
-    @OneToMany
-    @OneToMany
-    @jakarta.persistence.MapKey
-    private Map<LocalDate, Double> BMIResults;
 
-    public RegisteredUser(int age, Gender gender, double weight, double height, String userName, String password, String emailAddress, String address, Map<LocalDate, Double> BMIResults) {
+    public RegisteredUser(int age, Gender gender, double weight, double height, String userName, String password, String emailAddress, String address) {
         super(age, gender, weight, height);
         this.userName = userName;
         this.password = password;
         this.emailAddress = emailAddress;
         this.address = address;
-        this.BMIResults = BMIResults;
     }
-
-    public double calculateBMI(){
-        UserService userService = null;
-        return userService.calculateBMI(getWeight(),getHeight());
-    }
-
 
     @Override
     public String toString() {
@@ -51,7 +40,6 @@ public class RegisteredUser extends User {
                 ", password='" + password + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", address='" + address + '\'' +
-                ", BMIResults=" + BMIResults +
                 '}';
     }
 }

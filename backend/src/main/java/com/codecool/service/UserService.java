@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    @Autowired
+
     private UserRepository userRepository;
 
     private Calculator calculator;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, Calculator calculator) {
         this.userRepository = userRepository;
+        this.calculator = calculator;
     }
 
     public void addUser(User user){
@@ -26,8 +27,8 @@ public class UserService {
         return userRepository.findById(id).orElseThrow();
     }
 
-    public Long calculateBMI1(Long id){
-        return (long) calculator.calculator(weight,height);
+    public double calculateBMI1(User user){
+        return calculator.calculator(user.getWeight(), user.getHeight());
     }
     public Long calculateBMI2(double weight, double height){
         return (long) calculator.calculator(weight,height);
