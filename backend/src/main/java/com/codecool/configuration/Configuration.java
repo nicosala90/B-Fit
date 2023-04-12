@@ -1,6 +1,5 @@
 package com.codecool.configuration;
 
-import com.codecool.healthstate.HealthState;
 import org.springframework.context.annotation.Bean;
 
 

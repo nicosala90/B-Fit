@@ -1,27 +1,37 @@
 package com.codecool.controller;
 
 import com.codecool.data.user.User;
-import com.codecool.healthstate.HealthState;
+import com.codecool.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private HealthState healthState;
+    private UserService userService;
 
     @Autowired
-    public UserController(HealthState healthState) {
-        this.healthState = healthState;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @PostMapping("/actual-user")
-        public double addUser(@RequestBody User user){
+    @PostMapping("/calculated-BMI")
+    public double addUser(@RequestBody User user) {
         return user.calculateBMI();
     }
 
-    @GetMapping("/{id}")
-    public double getBMI(@PathVariable int id){
-        return healthState.getUserById(id).calculateBMI();
+    @PostMapping("/registeredBMI/{id}")
+    public double getBMI1(@PathVariable Long id) {
+        return userService.calculateBMI1(id);
+    }
+    @PostMapping("/unregisteredBMI")
+    public double getBMI2(@RequestBody Double weight, Double height) {
+        return userService.calculateBMI2(weight,height);
+    }
+
+    @PostMapping
+    public int createUser(@RequestBody User newUser) {
+        userService.addUser(newUser);
+        return 1;
     }
 }
