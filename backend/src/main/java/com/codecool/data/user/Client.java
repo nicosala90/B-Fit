@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
     private int age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -26,11 +30,23 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<BMI> bmiValues = new ArrayList<>();
 
-    public Client(int age, Gender gender, double weight, double height) {
+    @Autowired
+//    public Client(int age, Gender gender, double weight, double height) {
+//        this.age = age;
+//        this.gender = gender;
+//        this.weight = weight;
+//        this.height = height;
+//    }
+
+    public Client(Long id, int age, Gender gender, double weight, double height, String firstName, String lastName, String email) {
+        this.id = id;
         this.age = age;
         this.gender = gender;
         this.weight = weight;
         this.height = height;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     public void addCalculatedBMI(BMI bmi) {

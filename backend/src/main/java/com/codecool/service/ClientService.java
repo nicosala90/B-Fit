@@ -29,16 +29,23 @@ public class ClientService {
     }
 
 
-
-    public void addClient(Client client){
+    public void addClient(Client client) {
         clientRepository.save(client);
     }
 
-    public Client getClientById(Long id){
+    public List<Client> getAllClient() {
+        return clientRepository.findAll();
+    }
+
+    public void deleteClient(Long id){
+        clientRepository.deleteById(id);
+    }
+
+    public Client getClientById(Long id) {
         return clientRepository.findById(id).orElseThrow();
     }
 
-    public double calculateBMI(Client client){
+    public double calculateBMI(Client client) {
         double BMIResult = calculator.calculator(client.getWeight(), client.getHeight());
         BMI bmi = BMI.builder()
                 .bmiValues(BMIResult)
@@ -50,7 +57,8 @@ public class ClientService {
         bmiRepository.save(bmi);
         return BMIResult;
     }
-    public List<BMI> getBMIValuesSortByDate(Long id){
+
+    public List<BMI> getBMIValuesSortByDate(Long id) {
         Client user = clientRepository.findById(id).orElseThrow(RuntimeException::new);
         return user.getBmiValues()
                 .stream()

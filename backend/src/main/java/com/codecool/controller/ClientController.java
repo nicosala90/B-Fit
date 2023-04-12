@@ -19,7 +19,7 @@ public class ClientController {
     }
 
     @PostMapping("/registeredBMI")
-    public double getBMI(@RequestBody Client client) {
+    public double saveBMI(@RequestBody Client client) {
         return clientService.calculateBMI(client);
     }
 
@@ -28,10 +28,26 @@ public class ClientController {
         return clientService.getBMIValuesSortByDate(id);
     }
 
-
-    @PostMapping
-    public int createUser(@RequestBody Client newClient) {
+    //create
+    @PostMapping("/add-new-client")
+    public int addClient(@RequestBody Client newClient) {
         clientService.addClient(newClient);
         return 1;
+    }
+
+    //get all clients
+    @GetMapping("/all-clients")
+    public List<Client> getAllClient(){
+        return clientService.getAllClient();
+    }
+
+    @GetMapping("/{id}")
+    public Client getClientById(@PathVariable Long id){
+        return clientService.getClientById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteClientById(@PathVariable Long id){
+        clientService.deleteClient(id);
     }
 }
