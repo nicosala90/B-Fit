@@ -21,13 +21,13 @@ public class UserController {
     }*/
 
     @PostMapping("/registeredBMI/")
-    public double getBMI1(@RequestBody User user) {
-        return userService.calculateBMI1(user);
+    public double getBMI(@RequestBody User user) {
+        return userService.calculateBMI(user);
     }
-    @PostMapping("/unregisteredBMI")
+   /* @PostMapping("/unregisteredBMI")
     public double getBMI2(@RequestBody Double weight, Double height) {
         return userService.calculateBMI2(weight,height);
-    }
+    }*/
 
     @PostMapping
     public int createUser(@RequestBody User newUser) {

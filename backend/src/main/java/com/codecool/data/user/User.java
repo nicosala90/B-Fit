@@ -30,6 +30,9 @@ public class User {
         this.weight = weight;
         this.height = height;
     }
+    public void addCalculatedBMI(BMI bmi){
+        bmiValues.add(bmi);
+    }
 
     @Override
     public String toString() {

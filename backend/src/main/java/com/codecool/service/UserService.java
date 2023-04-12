@@ -1,10 +1,13 @@
 package com.codecool.service;
 
+import com.codecool.data.user.BMI;
 import com.codecool.data.user.User;
 import com.codecool.logic.Calculator;
 import com.codecool.repository_DAO.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 
 @Service
 public class UserService {
@@ -27,10 +30,16 @@ public class UserService {
         return userRepository.findById(id).orElseThrow();
     }
 
-    public double calculateBMI1(User user){
-        return calculator.calculator(user.getWeight(), user.getHeight());
+    public double calculateBMI(User user){
+        double BMIResult = calculator.calculator(user.getWeight(), user.getHeight());
+        BMI bmi = BMI.builder()
+                .bmiValues(BMIResult)
+                .localDate(LocalDate.now())
+                .user(user)
+                .build();
+        user.addCalculatedBMI(bmi);
+        userRepository.save(user);
+        return BMIResult;
     }
-    public Long calculateBMI2(double weight, double height){
-        return (long) calculator.calculator(weight,height);
-    }
+
 }
