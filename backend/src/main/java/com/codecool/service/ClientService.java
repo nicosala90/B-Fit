@@ -3,6 +3,7 @@ package com.codecool.service;
 import com.codecool.data.user.BMI;
 import com.codecool.data.user.Client;
 import com.codecool.logic.Calculator;
+import com.codecool.repository_DAO.BMIRepository;
 import com.codecool.repository_DAO.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,14 +17,18 @@ import java.util.stream.Collectors;
 public class ClientService {
 
     private ClientRepository clientRepository;
+    private BMIRepository bmiRepository;
 
     private Calculator calculator;
 
     @Autowired
-    public ClientService(ClientRepository clientRepository, Calculator calculator) {
+    public ClientService(ClientRepository clientRepository, BMIRepository bmiRepository, Calculator calculator) {
         this.clientRepository = clientRepository;
+        this.bmiRepository = bmiRepository;
         this.calculator = calculator;
     }
+
+
 
     public void addClient(Client client){
         clientRepository.save(client);
@@ -42,6 +47,7 @@ public class ClientService {
                 .build();
         client.addCalculatedBMI(bmi);
         clientRepository.save(client);
+        bmiRepository.save(bmi);
         return BMIResult;
     }
     public List<BMI> getBMIValuesSortByDate(Long id){
