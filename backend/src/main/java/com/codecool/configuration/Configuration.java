@@ -7,6 +7,7 @@ import org.springframework.context.annotation.*;
 
 
 
+/*
 @org.springframework.context.annotation.Configuration
 public class Configuration {
 
@@ -17,3 +18,4 @@ private UserRepository userRepository;
         return new UserService(userRepository, calculator);
     }
 }
+*/
