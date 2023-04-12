@@ -20,7 +20,7 @@ public class UserController {
         return user.calculateBMI();
     }*/
 
-    @PostMapping("/registeredBMI/")
+    @PostMapping("/registeredBMI")
     public double getBMI(@RequestBody User user) {
         return userService.calculateBMI(user);
     }
