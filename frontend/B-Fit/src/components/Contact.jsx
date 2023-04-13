@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from 'react';
 
-function Contact  () {
+function Contact() {
     const [show, setShow] = useState(true);
 
     function changeState() {
-      setShow(!show);
+        setShow(!show);
     }
 
     function resetState() {
@@ -64,60 +64,60 @@ function Contact  () {
 
     return (
         <div id="contact" className="main-content form">
-        {show ? (
-            <>
-            <h1>Contact Us</h1>
-            
-            <label>
-                First name:
-                <input
-                    value={person.firstName}
-                    onChange={handleFirstNameChange}
-                />
-            </label>
-            <label>
-                Last name:
-                <input
-                    value={person.lastName}
-                    onChange={handleLastNameChange}
-                />
-            </label>
-            <label>
-                Email:
-                <input
-                    value={person.email}
-                    onChange={handleEmailChange}
-                />
-            </label>
-            <label>
-                Subject:
-                <input
-                    value={person.subject}
-                    onChange={handleSubjectChange}
-                />
-            </label>
-            <label>
-                Message:
-                <textarea
-                    rows="10"
-                    value={person.message}
-                    onChange={handleMessageChange}
-                />
-            </label>
-            <button id="send" onClick={() => {changeState(); console.log(person)}}>Send</button>
-            </>
-        ) : (
-            <>
-            <p>We appreciate you contacting us. One of our colleagues
-                will get back in touch with you soon! Have a great day!
-            </p>
-            <button id="sendanother" onClick={() => resetState()}>Send another message</button>
-            </>
-        )}
+            {show ? (
+                <>
+                    <h1>Contact Us</h1>
+
+                    <label>
+                        First name:
+                        <input
+                            value={person.firstName}
+                            onChange={handleFirstNameChange}
+                        />
+                    </label>
+                    <label>
+                        Last name:
+                        <input
+                            value={person.lastName}
+                            onChange={handleLastNameChange}
+                        />
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            value={person.email}
+                            onChange={handleEmailChange}
+                        />
+                    </label>
+                    <label>
+                        Subject:
+                        <input
+                            value={person.subject}
+                            onChange={handleSubjectChange}
+                        />
+                    </label>
+                    <label>
+                        Message:
+                        <textarea
+                            rows="10"
+                            value={person.message}
+                            onChange={handleMessageChange}
+                        />
+                    </label>
+                    <button id="send" onClick={() => { changeState(); console.log(person) }}>Send</button>
+                </>
+            ) : (
+                <>
+                    <p>We appreciate you contacting us. One of our colleagues
+                        will get back in touch with you soon! Have a great day!
+                    </p>
+                    <button id="sendanother" onClick={() => resetState()}>Send another message</button>
+                </>
+            )}
         </div>
-        
+
     )
-   
+
 };
 
 export default Contact;

@@ -3,8 +3,7 @@ function Home() {
 
     return (
         <div>
-            <h1>About Us</h1>
-            <p>Welcome</p>
+            <h1>Welcome</h1>
             <p>B-fit is a comprehensive web platform designed to help users lead a healthy lifestyle,
                 created by SmartLife, a team of full-stack developers. The website provides a variety of
                 features that enable users to monitor and improve their overall health and wellbeing.
@@ -25,7 +24,7 @@ function Home() {
                 changes, the website empowers individuals to take control of their health and wellbeing.
             </p>
             <p>If you have any questions do not hesitate to contact us!
-            <Link to="/contact">Contact</Link>
+                <Link to="/contact">Contact</Link>
             </p>
         </div>
     )
