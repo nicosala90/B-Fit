@@ -9,32 +9,20 @@ body{
   text-align: center;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 #nav-bar {
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
 }
 
-.logo {
-  margin-right: 20px;
-}
-
-.nav-options a {
-  color: black;
-  font-weight: bold;
-  margin-right: 20px;
-  text-decoration: none;
-}
-
-.nav-options a:hover {
-  color: darkblue;
+#nav-bar > div{
+  margin-left: 10px;
+  display: flex;
 }
 
 #footer {
