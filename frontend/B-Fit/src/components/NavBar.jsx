@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function NavBar() {
 
@@ -5,15 +6,13 @@ function NavBar() {
         <div id="nav-bar">
             <div id="img-logo">
                 <img className="logo" src="/logo-text.png" alt="B-Fit" width="100" height="100"></img>
-                <h1>Home</h1>
+                <Link to="/Home">Home</Link>
             </div>
             <div id="about-contact">
-                <span><h1>About Contact</h1></span>
+        <Link to="/contact">Contact</Link>
+          <Link to="/calculator">BMI Calculator</Link>
             </div>
         </div>
     )
 }
 export default NavBar;
-/* <Link to={`/worklog/${employee._id}`}>
-                    <Button variant="outlined"> Worklog</Button>
-                  </Link>*/
