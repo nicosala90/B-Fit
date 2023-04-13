@@ -37,7 +37,7 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public void deleteClient(Long id){
+    public void deleteClient(Long id) {
         clientRepository.deleteById(id);
     }
 
@@ -45,16 +45,17 @@ public class ClientService {
         return clientRepository.findById(id).orElseThrow();
     }
 
-    public double calculateBMI(Client client) {
+    public double calculateBMI(Client client, Long id) {
         double BMIResult = calculator.calculator(client.getWeight(), client.getHeight());
-        BMI bmi = BMI.builder()
-                .bmiValues(BMIResult)
-                .localDate(LocalDate.now())
-                .client(client)
-                .build();
-        client.addCalculatedBMI(bmi);
-        clientRepository.save(client);
-        bmiRepository.save(bmi);
+        if (id > 0) {
+            BMI bmi = BMI.builder()
+                    .bmiValues(BMIResult)
+                    .localDate(LocalDate.now())
+                    .client(client)
+                    .build();
+            bmiRepository.save(bmi);
+            return BMIResult;
+        }
         return BMIResult;
     }
 

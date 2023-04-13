@@ -21,6 +21,7 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private int age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -31,22 +32,19 @@ public class Client {
     private List<BMI> bmiValues = new ArrayList<>();
 
     @Autowired
-//    public Client(int age, Gender gender, double weight, double height) {
-//        this.age = age;
-//        this.gender = gender;
-//        this.weight = weight;
-//        this.height = height;
-//    }
-
-    public Client(Long id, int age, Gender gender, double weight, double height, String firstName, String lastName, String email) {
-        this.id = id;
+    public Client(int age, Gender gender, String firstName, String lastName, String email, String password) {
+        this.age = age;
+        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+    public Client(int age, Gender gender, double weight, double height) {
         this.age = age;
         this.gender = gender;
         this.weight = weight;
         this.height = height;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
     }
 
     public void addCalculatedBMI(BMI bmi) {

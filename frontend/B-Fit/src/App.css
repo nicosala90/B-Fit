@@ -63,10 +63,21 @@ input[type="number"] {
 }
 
 #input-table {
-  width: 20%;
   width: 250px;
 }
 
+#login-table {
+  max-width: 500px;
+}
+#login-fields {
+  font-size: 25px;
+  border: solid 5px sandybrown;
+  align-items: flex-start;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 300px;
+  
+}
 #input-fields {
   font-size: 25px;
   border: solid 5px sandybrown;
