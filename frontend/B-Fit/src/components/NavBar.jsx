@@ -8,10 +8,11 @@ function NavBar() {
                 <img className="logo" src="/logo-text.png" alt="B-Fit" width="100" height="100"></img>
                 <Link to="/Home">Home</Link>
                 <Link to="login">Login</Link>
+                <Link to="/calculator">BMI Calculator</Link>
+                <Link to="/progress">Your Progress</Link>
             </div>
             <div id="about-contact">
                 <Link to="/contact">Contact</Link>
-                <Link to="/calculator">BMI Calculator</Link>
             </div>
         </div>
     )

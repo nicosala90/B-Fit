@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 
 
-function Progress(){
-
-    const [listBMI, setListBMI] = useState([]);
-
+function Progress() {
+    const [listBMI, setListBMI] = useState({});
+  
     useEffect(() => {
-        fetch(`/api/client/bmi-list/${id}`)
-            .catch(e => console.error(e))
-            .then(response => response.json())
-            .then(response => {
-                setListBMI(response);
-            });
+      fetch('/api/client/bmi-list/1')
+        .then(response => response.json())
+        .then(data => {
+          setListBMI(data);
+        })
+        .catch(error => {
+          console.error('Error fetching BMI list:', error);
+        });
     }, []);
-
-return (
-    <div className="list-BMI">
+  
+    return (
+      <div className="list-BMI">
         <ul>
-            {listBMI.map(bmi => 
-                <li>{bmi}</li>)}
+          {Object.values(listBMI).map((bmi, index) => (
+            <li key={index}>{bmi}</li>
+          ))}
         </ul>
-    </div>
-)
-
-
-}
-
+      </div>
+    );
+  }
 export default Progress;

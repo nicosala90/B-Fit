@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CalculatorBMI from './components/CalculatorBMI';
 import Home from './components/Home';
 import Progress from './components/Progress';
+import LoginCard from './components/LoginCard';
 
 function App() {
   return (

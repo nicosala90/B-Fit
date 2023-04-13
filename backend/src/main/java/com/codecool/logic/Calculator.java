@@ -1,10 +1,13 @@
 package com.codecool.logic;
 
-import com.codecool.data.user.User;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@NoArgsConstructor
 public class Calculator {
 
-    public double BMICalculator(double weight, double height){
+    public double calculator(double weight, double height){
     return weight / Math.pow(height,2);
     }
 }

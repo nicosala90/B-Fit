@@ -4,7 +4,8 @@ import SemiCircleIndicator from "./SemiCircleIndicator";
 
 function InputCard() {
 
-    const [user, setUser] = useState({
+    const [client, setClient] = useState({
+        "clientId": "",
         "gender": "",
         "age": "",
         "weight": "",
@@ -12,58 +13,71 @@ function InputCard() {
     })
     const [value, setValue] = useState(0);
 
+    function handleClientIdChange(e) {
+        setClient
+            ({
+                ...client,
+                clientId: e.target.value
+            })
+    }
     function handleGender(e) {
-        setUser({
-            ...user,
-            gender: e.target.value
-        })
+        setClient
+            ({
+                ...client,
+                gender: e.target.value
+            })
     }
     function handleAgeChange(e) {
-        setUser({
-            ...user,
-            age: e.target.value
-        })
+        setClient
+            ({
+                ...client,
+                age: e.target.value
+            })
     }
     function handleWeightChange(e) {
-        setUser({
-            ...user,
-            weight: e.target.value
-        })
+        setClient
+            ({
+                ...client,
+                weight: e.target.value
+            })
     }
     function handleHeightChange(e) {
-        setUser({
-            ...user,
-            height: e.target.value
-        })
+        setClient
+            ({
+                ...client,
+                height: e.target.value
+            })
     }
-    
-    function submitUserData(user) {
 
-        if (user["gender"] !== "" && user["age"] !== "" && user["weight"] !== "" && user["height"] !== "") {
+    function submitClientData(client) {
 
-            const userData = {
-                ...user,
-                age: parseFloat(user.age),
-                weight: parseFloat(user.weight),
-                height: parseFloat(user.height)
+        if (client["gender"] !== "" && client["age"] !== ""  && client["weight"] !== "" && client["height"] !== "") {
+            const clientData = {
+                ...client,
+                clientId: client.clientId === null ? parseFloat(client.clientId) : -1,
+                age: parseFloat(client.age),
+                weight: parseFloat(client.weight),
+                height: parseFloat(client.height)
             };
-
-            fetch('/api/user/actual-user', {
+            console.log(client);
+            fetch('/api/client/registeredBMI', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(userData)
+                body: JSON.stringify(clientData)
             })
                 .then(res => res.json())
                 .then(res => setValue(res));
 
-            setUser({
-                "gender": "",
-                "age": "",
-                "weight": "",
-                "height": ""
-            });
+            setClient
+                ({
+                    "clientId": "",
+                    "gender": "",
+                    "age": "",
+                    "weight": "",
+                    "height": ""
+                });
 
         }
     }
@@ -72,15 +86,16 @@ function InputCard() {
         <div className="container">
             <div id="input-table">
                 <div id="input-fields">
-                    <select name="genders" id="cars" value={user.gender} onChange={handleGender}>
+                    <input placeholder="client id" type="number" value={client.clientId} onChange={handleClientIdChange}></input>
+                    <select name="genders" id="cars" value={client.gender} onChange={handleGender}>
                         <option value="">-Choose a gender-</option>
                         <option value="MALE">Male</option>
                         <option value="FEMALE">Female</option>
                     </select>
-                    <input placeholder="age" type="number" value={user.age} onChange={handleAgeChange}></input>
-                    <input placeholder="weight" type="number" value={user.weight} onChange={handleWeightChange}></input>
-                    <input placeholder="height" type="number" value={user.height} onChange={handleHeightChange}></input>
-                    <button id="submitBtn" onClick={() => { submitUserData(user); }}>Calculate</button>
+                    <input placeholder="age" type="number" value={client.age} onChange={handleAgeChange}></input>
+                    <input placeholder="weight" type="number" value={client.weight} onChange={handleWeightChange}></input>
+                    <input placeholder="height" type="number" value={client.height} onChange={handleHeightChange}></input>
+                    <button id="submitBtn" onClick={() => { submitClientData(client); }}>Calculate</button>
 
                     {value > 0
                         ?
