@@ -68,7 +68,7 @@ function LoginCard() {
                 email: client.email,
                 password: client.password
             };
-            console.log(client);
+            
             fetch('/api/client/add-client', {
                 method: 'POST',
                 headers: {
@@ -93,7 +93,7 @@ function LoginCard() {
     }
 
     return (
-        <div className="container">
+        <div className="container-login">
             <div id="login-table">
                 <div id="login-fields">
                     <select name="genders" id="cars" value={client.gender} onChange={handleGender}>

@@ -40,14 +40,25 @@ body{
   align-items: center;
 }
 
-.container {
+.container-input{
   background-color: rgb(63, 69, 79);
   color: white;
   position: absolute;
   left: 50px;
   top: 120px;
-  width: 600;
-  height: 600;
+  width: 600px;
+  height: 600px;
+  display: flex;
+}
+
+.container-login{
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  right: 50px;
+  top: 120px;
+  width: 200px;
+  height: 600px;
   display: flex;
 }
 
@@ -72,10 +83,10 @@ input[type="number"] {
 #login-fields {
   font-size: 25px;
   border: solid 5px sandybrown;
-  align-items: flex-start;
+  align-items: flex-end;
   border-radius: 15px;
   padding: 10px;
-  margin-left: 300px;
+  margin-right: 10px;
   
 }
 #input-fields {

@@ -46,6 +46,7 @@ public class ClientService {
     }
 
     public double calculateBMI(Client client, Long id) {
+        client.setId(id);
         double BMIResult = calculator.calculator(client.getWeight(), client.getHeight());
         if (id > 0) {
             BMI bmi = BMI.builder()
@@ -53,6 +54,7 @@ public class ClientService {
                     .localDate(LocalDate.now())
                     .client(client)
                     .build();
+            client.addCalculatedBMI(bmi);
             bmiRepository.save(bmi);
             return BMIResult;
         }

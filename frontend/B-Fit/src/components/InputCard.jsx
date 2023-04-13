@@ -50,17 +50,20 @@ function InputCard() {
     }
 
     function submitClientData(client) {
-
-        if (client["gender"] !== "" && client["age"] !== ""  && client["weight"] !== "" && client["height"] !== "") {
+        console.log(client);
+        console.log(client.clientId);
+        console.log("id "+client.id);
+        if (client["gender"] !== "" && client["age"] !== "" && client["weight"] !== "" && client["height"] !== "") {
+            if (client.clientId === "") { client.clientId = 0; } else { client.clientId = parseFloat(client.clientId); }
             const clientData = {
                 ...client,
-                clientId: client.clientId === null ? parseFloat(client.clientId) : -1,
+                clientId: client.clientId == "" ? -1 : parseFloat(client.clientId),
                 age: parseFloat(client.age),
                 weight: parseFloat(client.weight),
                 height: parseFloat(client.height)
             };
-            console.log(client);
-            fetch('/api/client/registeredBMI', {
+
+            fetch(`/api/client/registeredBMI/${client.clientId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -83,7 +86,7 @@ function InputCard() {
     }
 
     return (
-        <div className="container">
+        <div className="container-input">
             <div id="input-table">
                 <div id="input-fields">
                     <input placeholder="client id" type="number" value={client.clientId} onChange={handleClientIdChange}></input>
