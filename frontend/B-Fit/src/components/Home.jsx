@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function Home() {
 
     return (
-        <div>
+        <div id="home">
             <h1>Welcome</h1>
             <p>B-fit is a comprehensive web platform designed to help users lead a healthy lifestyle,
                 created by SmartLife, a team of full-stack developers. The website provides a variety of

@@ -23,6 +23,7 @@ public class BMI {
     private double bmiValues;
     private LocalDate localDate;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "client_id")
     private Client client;
 
