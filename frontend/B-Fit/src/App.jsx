@@ -5,6 +5,7 @@ import Contact from './components/Contact';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CalculatorBMI from './components/CalculatorBMI';
 import Home from './components/Home';
+import Progress from './components/Progress';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/contact" element={<Contact />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/progress" element={<Progress/>}/>
           <Route path='/calculator' element={<CalculatorBMI/>}/>
           <Route path='/login' element={<LoginCard/>}/>
         </Routes>
