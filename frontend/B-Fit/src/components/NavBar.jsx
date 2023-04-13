@@ -9,7 +9,7 @@ function NavBar() {
             </div>
             <div className="nav-options">
                 <Link className="link-component" to="/">Home</Link>
-                <Link className="link-component" to="login">Login</Link>
+                <Link className="link-component" to="login">Sign Up</Link>
                 <Link className="link-component" to="/calculator">BMI Calculator</Link>
                 <Link className="link-component" to="/progress">Your Progress</Link>
                 <Link className="link-component" to="/contact">Contact</Link>
