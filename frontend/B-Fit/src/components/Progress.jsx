@@ -34,6 +34,7 @@ function Progress() {
               </tr>)}
           </tr>
         </tbody>
+
       </table>
     </div>
   );
