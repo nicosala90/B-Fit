@@ -54,7 +54,7 @@ body{
   height: 600px;
   display: flex;
 }
-.container-contact, .list-BMI{
+.container-contact{
   background-color: rgb(63, 69, 79);
   color: white;
   position: absolute;
@@ -138,5 +138,19 @@ input[type="number"] {
 }
 
 .list-BMI {
-
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  border: solid 5px sandybrown;
+  border-radius: 10px;
+  left: 50px;
+  top: 120px;
+  width: auto;
+  height: auto;
+  display: flex;
+  margin: 10px;
+  padding:10px;
+  flex-direction: column;
+  border-spacing: 30px;
+  font-size: 25px;
 }
