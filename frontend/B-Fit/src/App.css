@@ -24,6 +24,17 @@ body{
   margin-left: 10px;
   display: flex;
 }
+.link-component {
+  color:white;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  border: 5px solid orange;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 10px;
+  font-size: 20px;
+}
 
 #footer {
   background-color: rgb(63, 69, 79);
@@ -43,12 +54,23 @@ body{
   height: 600px;
   display: flex;
 }
+.container-contact, .list-BMI{
+  background-color: rgb(63, 69, 79);
+  color: white;
+  position: absolute;
+  left: 150px;
+  top: 120px;
+  width: 350px;
+  height: 600px;
+  display: flex;
+flex-direction: column;
+}
 
 .container-login{
   background-color: rgb(63, 69, 79);
   color: white;
   position: absolute;
-  right: 50px;
+  left: 50px;
   top: 120px;
   width: 200px;
   height: 600px;
@@ -113,4 +135,8 @@ input[type="number"] {
   border: solid 2px sandybrown;
   border-radius: 10px;
   margin: 20px;
+}
+
+.list-BMI {
+
 }

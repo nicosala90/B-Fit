@@ -63,28 +63,29 @@ function Contact() {
     }
 
     return (
-        <div className="container">
+        <div className="container-contact">
             <h1>Contact Us</h1>
-            {show ? (<div id="login-table">
+            {show ? (<div id="login-table" >
                 <div id="login-fields">
-                    <label>First name:
+                    <label>
                         <input placeholder="First name" value={person.firstName} onChange={handleFirstNameChange} />
                     </label>
                     <label>
-                        Last name:
+
                         <input placeholder="Last name" value={person.lastName} onChange={handleLastNameChange} />
                     </label>
-                    <label>E-mail:
+                    <label>
                         <input placeholder="E-mail" value={person.email} onChange={handleEmailChange} />
                     </label>
-                    <label>Subject:
+                    <label>
                         <input placeholder="Subject" value={person.subject} onChange={handleSubjectChange} />
                     </label>
                     <label>
-                        Message:
                         <textarea placeholder="Message" rows="10" value={person.message} onChange={handleMessageChange} />
                     </label>
-                    <button id="submitBtn" onClick={() => { changeState(); console.log(person) }}>Send</button>
+                    <div>
+                        <button id="submitBtn" onClick={() => { changeState(); console.log(person) }}>Send</button>
+                    </div>
                 </div>
             </div>
             ) : (
