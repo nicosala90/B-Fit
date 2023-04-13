@@ -10,7 +10,7 @@ import LoginCard from './components/LoginCard';
 
 function App() {
   return (
-    <div>
+    <div className="root">
       <Router>
         <NavBar />
         <Routes>
