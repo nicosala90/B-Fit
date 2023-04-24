@@ -57,7 +57,7 @@ function Login (){
                 <div id="login-fields">
                     <input placeholder="username" type="text" value={client.username} onChange={handleUsername}></input>
                     <input placeholder="password" type="text" value={client.password} onChange={handlePassword}></input>
-                    <button id="submitBtn" onClick={() => { submitClientData(client); }}>Login</button>  
+                    <button className="submitBtn" onClick={() => { submitClientData(client); }}>Login</button>  
                 </div>
             </div>
         </div>

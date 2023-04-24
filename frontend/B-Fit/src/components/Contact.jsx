@@ -84,7 +84,7 @@ function Contact() {
                         <textarea placeholder="Message" rows="10" value={person.message} onChange={handleMessageChange} />
                     </label>
                     <div>
-                        <button id="submitBtn" onClick={() => { changeState(); console.log(person) }}>Send</button>
+                        <button className="submitBtn" onClick={() => { changeState(); console.log(person) }}>Send</button>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ function Contact() {
                     <p>We appreciate you contacting us. One of our colleagues
                         will get back in touch with you soon! Have a great day!
                     </p>
-                    <button id="submitBtn" onClick={() => resetState()}>Send another message</button>
+                    <button className="submitBtn" onClick={() => resetState()}>Send another message</button>
                 </div>
             )
             }

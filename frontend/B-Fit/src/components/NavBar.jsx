@@ -8,11 +8,11 @@ function NavBar() {
                 <img className="logo" src="/logo-text.png" alt="B-Fit" width="100" height="100"></img>
             </div>
             <div className="nav-options">
-            <div class="dropdown">
-                    <button class="dropbtn">Sign in
-                        <i class="fa fa-caret-down"></i>
+                <div className="dropdown">
+                    <button className="dropbtn">Sign in
+                        <i className="fa fa-caret-down"></i>
                     </button>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content elements" >
                     <Link className="link-component" to="/login">Login</Link>
                     <Link className="link-component" to="/signin">Sign In</Link>
                     </div>
