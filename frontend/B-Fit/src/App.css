@@ -120,7 +120,7 @@ input[type="number"] {
   max-height: 520px;
 }
 
-#submitBtn {
+.submitBtn {
   font-size: 15px;
   background-color: white;
   border: solid 5px sandybrown;

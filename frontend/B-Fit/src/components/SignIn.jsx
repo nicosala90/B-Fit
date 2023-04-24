@@ -3,41 +3,21 @@ import { useState } from "react";
 function SignIn() {
 
     const [client, setClient] = useState({
-        "gender": "",
-        "age": "",
-        "firstName": "",
-        "lastName": "",
+        "username": "",
         "email": "",
-        "password": "",SignIn
+        "password": "",
+        "birthday": "",
+        "height": ""
     })
     const [value, setValue] = useState(0);
 
-    function handleGender(e) {
+    const [show, setShow] = useState(false)
+
+    function handleUserNameChange(e) {
         setClient
             ({
                 ...client,
-                gender: e.target.value
-            })
-    }
-    function handleAgeChange(e) {
-        setClient
-            ({
-                ...client,
-                age: e.target.value
-            })
-    }
-    function handleFirstNameChange(e) {
-        setClient
-            ({
-                ...client,
-                firstName: e.target.value
-            })
-    }
-    function handleLastNameChange(e) {
-        setClient
-            ({
-                ...client,
-                lastName: e.target.value
+                username: e.target.value
             })
     }
     function handleEmailChange(e) {
@@ -54,21 +34,36 @@ function SignIn() {
                 password: e.target.value
             })
     }
+    function handleBirthdayChange(e) {
+        setClient
+            ({
+                ...client,
+                birthday: e.target.value
+            })
+    }
+    function handleHeightChange(e) {
+        setClient
+            ({
+                ...client,
+                height: e.target.value
+            })
+    }
+
+    function showMoreDataFields() {
+        setShow(true)
+    }
 
     function submitClientData(client) {
 
-        if (client["gender"] !== "" && client["age"] !== "" && client["firstName"] !== "" && client["lastName"] !== ""
-            && client["email"] !== "" && client["password"] !== "") {
+        if (client["username"] !== "" && client["email"] !== "" && client["password"] !== "") {
 
             const clientData = {
                 ...client,
-                age: parseFloat(client.age),
-                firstName: client.firstName,
-                lastName: client.lastName,
+                username: client.username,
                 email: client.email,
                 password: client.password
             };
-            
+
             fetch('/api/client/add-client', {
                 method: 'POST',
                 headers: {
@@ -81,10 +76,7 @@ function SignIn() {
 
             setClient
                 ({
-                    "gender": "",
-                    "age": "",
-                    "firstName": "",
-                    "lastName": "",
+                    "username": "",
                     "email": "",
                     "password": ""
                 });
@@ -96,18 +88,29 @@ function SignIn() {
         <div className="container-login">
             <div id="login-table">
                 <div id="login-fields">
-                    <select name="genders" id="cars" value={client.gender} onChange={handleGender}>
-                        <option value="">-Choose a gender-</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                    </select>
-                    <input placeholder="age" type="number" value={client.age} onChange={handleAgeChange}></input>
-                    <input placeholder="first name" type="text" value={client.firstName} onChange={handleFirstNameChange}></input>
-                    <input placeholder="last name" type="text" value={client.lastName} onChange={handleLastNameChange}></input>
+                    <input placeholder="username" type="text" value={client.username} onChange={handleUserNameChange}></input>
                     <input placeholder="email" type="text" value={client.email} onChange={handleEmailChange}></input>
                     <input placeholder="password" type="text" value={client.password} onChange={handlePasswordChange}></input>
-                    <button id="submitBtn" onClick={() => { submitClientData(client); }}>Login</button>  
+                    {show ?
+                        (
+                            <>
+                                <input placeholder="birthdate" type="date" value={client.birthday} onChange={handleBirthdayChange}></input>
+                                <input placeholder="height" type="text" value={client.height} onChange={handleHeightChange}></input>
+                                <button className="submitBtn" onClick={() => { submitClientData(client); }}>Sign in</button>
+                            </>
+                        )
+                        : null}
                 </div>
+                {!show ?
+                    (
+                        <div>
+                            <span>
+                                <p>If you want to save your personal data for calculate BMI please give more information </p>
+                                <button className="submitBtn" onClick={showMoreDataFields}>Click here</button>
+                            </span>
+                        </div>
+                    )
+                    : null}
             </div>
         </div>
     )
