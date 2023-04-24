@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function LoginCard() {
+function SignIn() {
 
     const [client, setClient] = useState({
         "gender": "",
@@ -8,7 +8,7 @@ function LoginCard() {
         "firstName": "",
         "lastName": "",
         "email": "",
-        "password": "",
+        "password": "",SignIn
     })
     const [value, setValue] = useState(0);
 
@@ -112,4 +112,4 @@ function LoginCard() {
         </div>
     )
 }
-export default LoginCard;
+export default SignIn;
