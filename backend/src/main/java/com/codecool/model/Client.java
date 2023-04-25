@@ -1,4 +1,4 @@
-package com.codecool.data.user;
+package com.codecool.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

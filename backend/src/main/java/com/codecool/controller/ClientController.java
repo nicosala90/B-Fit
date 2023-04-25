@@ -1,7 +1,7 @@
 package com.codecool.controller;
 
-import com.codecool.data.user.BMI;
-import com.codecool.data.user.Client;
+import com.codecool.model.BMI;
+import com.codecool.model.Client;
 import com.codecool.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
