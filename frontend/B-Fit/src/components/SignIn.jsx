@@ -118,9 +118,6 @@ function SignIn() {
                     )
                     : null}
             </div>
-            <div>
-                <Chart/>
-            </div>
         </div>
     )
 }
