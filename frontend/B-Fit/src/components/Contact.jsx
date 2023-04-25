@@ -11,8 +11,7 @@ function Contact() {
     function resetState() {
         setShow(!show);
         setPerson({
-            "firstName": "",
-            "lastName": "",
+            "clientName": "",
             "email": "",
             "subject": "",
             "message": "",
@@ -20,24 +19,16 @@ function Contact() {
     }
 
     const [person, setPerson] = useState({
-        "firstName": "",
-        "lastName": "",
+        "clientName": "",
         "email": "",
         "subject": "",
         "message": "",
     });
 
-    function handleFirstNameChange(e) {
+    function handleClientNameChange(e) {
         setPerson({
             ...person,
-            firstName: e.target.value
-        });
-    }
-
-    function handleLastNameChange(e) {
-        setPerson({
-            ...person,
-            lastName: e.target.value
+            clientName: e.target.value
         });
     }
 
@@ -68,11 +59,7 @@ function Contact() {
             {show ? (<div id="login-table" >
                 <div id="login-fields">
                     <label>
-                        <input placeholder="First name" value={person.firstName} onChange={handleFirstNameChange} />
-                    </label>
-                    <label>
-
-                        <input placeholder="Last name" value={person.lastName} onChange={handleLastNameChange} />
+                        <input placeholder="Client name" value={person.clientName} onChange={handleClientNameChange} />
                     </label>
                     <label>
                         <input placeholder="E-mail" value={person.email} onChange={handleEmailChange} />
