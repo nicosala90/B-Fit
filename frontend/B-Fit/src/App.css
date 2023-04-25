@@ -32,7 +32,7 @@ body{
   align-items: center;
   border: 5px solid orange;
   border-radius: 30px;
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
   font-size: 20px;
 }
@@ -92,7 +92,7 @@ input[type="number"] {
   width: 280px;
 }
 
-input { 
+input, textarea { 
   height: 35px;
   font-size: 20px;
   margin: 10px;
@@ -126,8 +126,15 @@ input {
   max-height: 510px;
 }
 
-.submitBtn {
-  font-size: 15px;
+#home{
+  max-width: 800px;
+   border: solid 4px sandybrown;
+   border-radius: 20px;
+ color: white;
+ }
+
+ .submitBtn {
+  font-size: 25px;
   background-color: white;
   border: solid 5px sandybrown;
   border-radius: 10px;
@@ -143,12 +150,6 @@ input {
   border-radius: 10px;
   margin: 20px;
 }
-#home{
-  max-width: 800px;
-   border: solid 4px sandybrown;
-   border-radius: 20px;
- color: white;
- }
 
  .list-BMI {
   background-color: rgb(63, 69, 79);
@@ -229,7 +230,7 @@ input {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 115px;
+  top: 100px;
   min-width: 160px;
   z-index: 1;
 }
@@ -247,7 +248,7 @@ input {
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 15px;
   color: white;
   text-align: center;
   padding: 14px 16px;
