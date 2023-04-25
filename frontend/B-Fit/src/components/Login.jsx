@@ -1,5 +1,5 @@
 import { useState } from "react";
-function Login (){
+function Login() {
 
     const [client, setClient] = useState({
         "clientName": "",
@@ -21,8 +21,8 @@ function Login (){
                 password: e.target.value
             })
     }
-   
-    function submitClientData(client) {
+
+    function submitClientCheckerData(client) {
 
         if (client["clientName"] !== "" && client["password"] !== "") {
 
@@ -31,8 +31,8 @@ function Login (){
                 clientName: client.clientName,
                 password: client.password
             };
-            
-            fetch('/api/client/login', {
+
+            fetch('/api/client/client-checker', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -56,8 +56,8 @@ function Login (){
             <div id="login-table">
                 <div id="login-fields">
                     <input placeholder="clientName" type="text" value={client.clientName} onChange={handleClientName}></input>
-                    <input placeholder="password" type="text" value={client.password} onChange={handlePassword}></input>
-                    <button className="submitBtn" onClick={() => { submitClientData(client); }}>Login</button>  
+                    <input placeholder="password" type="password" value={client.password} onChange={handlePassword}></input>
+                    <button className="submitBtn" onClick={() => { submitClientCheckerData(client); }}>Login</button>
                 </div>
             </div>
         </div>

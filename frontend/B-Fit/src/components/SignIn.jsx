@@ -13,6 +13,7 @@ function SignIn() {
 
     const [show, setShow] = useState(false)
 
+
     function handleClientNameChange(e) {
         setClient
             ({
@@ -78,9 +79,11 @@ function SignIn() {
                 ({
                     "clientName": "",
                     "email": "",
-                    "password": ""
+                    "password": "",
+                    "dateOfBirth": "",
+                    "height": ""
                 });
-
+            setShow(false);
         }
     }
 
@@ -90,11 +93,14 @@ function SignIn() {
                 <div id="login-fields">
                     <input placeholder="clientName" type="text" value={client.clientName} onChange={handleClientNameChange}></input>
                     <input placeholder="email" type="text" value={client.email} onChange={handleEmailChange}></input>
-                    <input placeholder="password" type="text" value={client.password} onChange={handlePasswordChange}></input>
+                    <input placeholder="password" type="password" value={client.password} onChange={handlePasswordChange}></input>
                     {show ?
                         (
                             <>
+                                <span>
+                                    <label><small>Date of Birth</small></label>
                                 <input placeholder="dateOfBirth" type="date" value={client.dateOfBirth} onChange={handleDateOfBirthChange}></input>
+                                </span>
                                 <input placeholder="height" type="text" value={client.height} onChange={handleHeightChange}></input>
                                 <button className="submitBtn" onClick={() => { submitClientData(client); }}>Sign in</button>
                             </>

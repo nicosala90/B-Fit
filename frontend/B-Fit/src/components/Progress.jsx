@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 function Progress() {
   const [listBMI, setListBMI] = useState({});
 
-  useEffect(() => {
-    fetch('/api/client/bmi-list/1')
+  useEffect((clientId) => {
+   // fetch(`/api/client/bmi-list/${clientId}`)
+    fetch(`/api/client/bmi-list/1`)
       .then(response => response.json())
       .catch(error => {
         console.error('Error fetching BMI list:', error);
