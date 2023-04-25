@@ -2,15 +2,13 @@ package com.codecool.data.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Builder
@@ -27,10 +25,4 @@ public class BMI {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    public BMI(Long id, double bmiValues, LocalDate localDate, Client client) {
-        this.id = id;
-        this.bmiValues = bmiValues;
-        this.localDate = localDate;
-        this.client = client;
-    }
 }
