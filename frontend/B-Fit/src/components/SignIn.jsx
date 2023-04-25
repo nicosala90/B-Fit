@@ -3,21 +3,21 @@ import { useState } from "react";
 function SignIn() {
 
     const [client, setClient] = useState({
-        "username": "",
+        "clientName": "",
         "email": "",
         "password": "",
-        "birthday": "",
+        "dateOfBirth": "",
         "height": ""
     })
     const [value, setValue] = useState(0);
 
     const [show, setShow] = useState(false)
 
-    function handleUserNameChange(e) {
+    function handleClientNameChange(e) {
         setClient
             ({
                 ...client,
-                username: e.target.value
+                clientName: e.target.value
             })
     }
     function handleEmailChange(e) {
@@ -34,11 +34,11 @@ function SignIn() {
                 password: e.target.value
             })
     }
-    function handleBirthdayChange(e) {
+    function handleDateOfBirthChange(e) {
         setClient
             ({
                 ...client,
-                birthday: e.target.value
+                dateOfBirth: e.target.value
             })
     }
     function handleHeightChange(e) {
@@ -55,11 +55,11 @@ function SignIn() {
 
     function submitClientData(client) {
 
-        if (client["username"] !== "" && client["email"] !== "" && client["password"] !== "") {
+        if (client["clientName"] !== "" && client["email"] !== "" && client["password"] !== "") {
 
             const clientData = {
                 ...client,
-                username: client.username,
+                clientName: client.clientName,
                 email: client.email,
                 password: client.password
             };
@@ -76,7 +76,7 @@ function SignIn() {
 
             setClient
                 ({
-                    "username": "",
+                    "clientName": "",
                     "email": "",
                     "password": ""
                 });
@@ -88,13 +88,13 @@ function SignIn() {
         <div className="container-login">
             <div id="login-table">
                 <div id="login-fields">
-                    <input placeholder="username" type="text" value={client.username} onChange={handleUserNameChange}></input>
+                    <input placeholder="clientName" type="text" value={client.clientName} onChange={handleClientNameChange}></input>
                     <input placeholder="email" type="text" value={client.email} onChange={handleEmailChange}></input>
                     <input placeholder="password" type="text" value={client.password} onChange={handlePasswordChange}></input>
                     {show ?
                         (
                             <>
-                                <input placeholder="birthdate" type="date" value={client.birthday} onChange={handleBirthdayChange}></input>
+                                <input placeholder="dateOfBirth" type="date" value={client.dateOfBirth} onChange={handleDateOfBirthChange}></input>
                                 <input placeholder="height" type="text" value={client.height} onChange={handleHeightChange}></input>
                                 <button className="submitBtn" onClick={() => { submitClientData(client); }}>Sign in</button>
                             </>

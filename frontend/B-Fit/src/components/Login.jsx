@@ -2,16 +2,16 @@ import { useState } from "react";
 function Login (){
 
     const [client, setClient] = useState({
-        "username": "",
+        "clientName": "",
         "password": ""
     })
     const [value, setValue] = useState(0);
 
-    function handleUsername(e) {
+    function handleClientName(e) {
         setClient
             ({
                 ...client,
-                username: e.target.value
+                clientName: e.target.value
             })
     }
     function handlePassword(e) {
@@ -24,11 +24,11 @@ function Login (){
    
     function submitClientData(client) {
 
-        if (client["username"] !== "" && client["password"] !== "") {
+        if (client["clientName"] !== "" && client["password"] !== "") {
 
             const clientData = {
                 ...client,
-                username: client.username,
+                clientName: client.clientName,
                 password: client.password
             };
             
@@ -44,7 +44,7 @@ function Login (){
 
             setClient
                 ({
-                    "username": "",
+                    "clientName": "",
                     "password": ""
                 });
 
@@ -55,7 +55,7 @@ function Login (){
         <div className="container-login">
             <div id="login-table">
                 <div id="login-fields">
-                    <input placeholder="username" type="text" value={client.username} onChange={handleUsername}></input>
+                    <input placeholder="clientName" type="text" value={client.clientName} onChange={handleClientName}></input>
                     <input placeholder="password" type="text" value={client.password} onChange={handlePassword}></input>
                     <button className="submitBtn" onClick={() => { submitClientData(client); }}>Login</button>  
                 </div>
