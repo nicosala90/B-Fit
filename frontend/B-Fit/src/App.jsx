@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CalculatorBMI from './components/CalculatorBMI';
 import Home from './components/Home';
 import Progress from './components/Progress';
-import LoginCard from './components/LoginCard';
+import SignIn from './components/SignIn';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/progress" element={<Progress/>}/>
           <Route path='/calculator' element={<CalculatorBMI/>}/>
-          <Route path='/login' element={<LoginCard/>}/>
+          <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
         <Footer />
       </Router>

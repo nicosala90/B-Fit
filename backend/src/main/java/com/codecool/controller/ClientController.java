@@ -1,7 +1,7 @@
 package com.codecool.controller;
 
-import com.codecool.data.user.BMI;
-import com.codecool.data.user.Client;
+import com.codecool.model.BMI;
+import com.codecool.model.Client;
 import com.codecool.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ public class ClientController {
 
     @PostMapping("/registeredBMI/{id}")
     public double saveBMI(@RequestBody Client clientData, @PathVariable Long id) {
-        System.out.println("BMI save");
+        System.out.println("BMI saved");
         return clientService.calculateBMI(clientData, id);
     }
 
@@ -32,7 +32,7 @@ public class ClientController {
     //create
     @PostMapping("/add-client")
     public int addClient(@RequestBody Client newClient) {
-        System.out.println("Client save");
+        System.out.println("Client saved");
         clientService.addClient(newClient);
         return 1;
     }

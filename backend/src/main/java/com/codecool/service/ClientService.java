@@ -1,7 +1,7 @@
 package com.codecool.service;
 
-import com.codecool.data.user.BMI;
-import com.codecool.data.user.Client;
+import com.codecool.model.BMI;
+import com.codecool.model.Client;
 import com.codecool.logic.Calculator;
 import com.codecool.repository_DAO.BMIRepository;
 import com.codecool.repository_DAO.ClientRepository;

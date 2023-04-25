@@ -98,7 +98,7 @@ function InputCard() {
                     <input placeholder="age" type="number" value={client.age} onChange={handleAgeChange}></input>
                     <input placeholder="weight" type="number" value={client.weight} onChange={handleWeightChange}></input>
                     <input placeholder="height" type="number" value={client.height} onChange={handleHeightChange}></input>
-                    <button id="submitBtn" onClick={() => { submitClientData(client); }}>Calculate</button>
+                    <button className="submitBtn" onClick={() => { submitClientData(client); }}>Calculate</button>
 
                     {value > 0
                         ?

@@ -1,4 +1,4 @@
-package com.codecool.data.user;
+package com.codecool.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +19,10 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String clientName;
     private String email;
     private String password;
-    private int age;
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private LocalDate birthdayDate;
     private double weight;
     private double height;
 
@@ -32,17 +30,15 @@ public class Client {
     private List<BMI> bmiValues = new ArrayList<>();
 
     @Autowired
-    public Client(int age, Gender gender, String firstName, String lastName, String email, String password) {
-        this.age = age;
-        this.gender = gender;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Client(String clientName, String email, String password, LocalDate birthdayDate) {
+        this.clientName = clientName;
         this.email = email;
         this.password = password;
+        this.birthdayDate = birthdayDate;
     }
-    public Client(int age, Gender gender, double weight, double height) {
-        this.age = age;
-        this.gender = gender;
+
+    public Client(LocalDate birthdayDate, double weight, double height) {
+        this.birthdayDate = birthdayDate;
         this.weight = weight;
         this.height = height;
     }
@@ -55,10 +51,13 @@ public class Client {
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", age=" + age +
-                ", gender=" + gender +
+                ", clientName='" + clientName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthdayDate=" + birthdayDate +
                 ", weight=" + weight +
                 ", height=" + height +
+                ", bmiValues=" + bmiValues +
                 '}';
     }
 }
