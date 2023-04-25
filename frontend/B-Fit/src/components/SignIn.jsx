@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Chart from "./Chart";
 function SignIn() {
 
     const [client, setClient] = useState({
@@ -111,6 +111,9 @@ function SignIn() {
                         </div>
                     )
                     : null}
+            </div>
+            <div>
+                <Chart/>
             </div>
         </div>
     )
