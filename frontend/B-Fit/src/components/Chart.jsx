@@ -10,8 +10,8 @@ function Chart({ listBMI }) {
       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       style={{ backgroundColor: 'white' }}
     >
-      <YAxis dataKey="bmiValues"  />
-      <XAxis  dataKey="localDate"/>
+      <YAxis dataKey="bmiValues"  label={{ value: 'BMI', angle: -90, position: 'insideLeft', fontSize: 15}} tick={{ fontSize: 20 }}/>
+      <XAxis  dataKey="localDate" label={{  position: 'insideBottom', fontSize: 15 }} tick={{ fontSize: 20 }}/>
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend verticalAlign="top" height={36} />
