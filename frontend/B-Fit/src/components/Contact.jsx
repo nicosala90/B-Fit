@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-
+import Chart from "./Chart";
 function Contact() {
     const [show, setShow] = useState(true);
 
@@ -84,6 +84,9 @@ function Contact() {
                 </div>
             )
             }
+            <div>
+                <Chart/>
+            </div>
         </div>
     )
 }
