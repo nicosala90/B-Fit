@@ -36,7 +36,7 @@ function Progress() {
           </tr>
         </tbody>
       </table>
-      <div>
+      <div className="chart">
         <Chart listBMI={listBMI}/>
       </div>
     </div>

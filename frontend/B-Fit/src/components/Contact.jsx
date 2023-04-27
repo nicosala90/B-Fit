@@ -84,9 +84,6 @@ function Contact() {
                 </div>
             )
             }
-            <div>
-                <Chart/>
-            </div>
         </div>
     )
 }
