@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Chart from "./Chart";
 
 function Progress() {
   const [listBMI, setListBMI] = useState({});
@@ -35,8 +35,10 @@ function Progress() {
               </tr>)}
           </tr>
         </tbody>
-
       </table>
+      <div className="chart">
+        <Chart listBMI={listBMI}/>
+      </div>
     </div>
   );
 }
