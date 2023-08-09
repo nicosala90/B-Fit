@@ -6,14 +6,14 @@ Also the app function like a social media app where users can talk to the coache
 ## Technology
 PostgreSQL - database\
 Spring Boot (Java) - backend\
-React (Javascript) - frontend\
+React (Javascript) - frontend
 
 ## How to run
 
 ### Without Docker
 Needed software: Java JRE for the backend and e.g. NodeJs for the frontend.\
 1. The back-end server runs from the cloned repository from the backend subdirectory.\
-2. The front-end server runs from the cloned repository from the front-end subdirectory.\
+2. The front-end server runs from the cloned repository from the front-end subdirectory.
    ```
     npm install
    ```
@@ -37,9 +37,13 @@ Once you have the Docker environment and the project built, navigate to the root
 Backend (Java)
 1. Open a terminal or command prompt.
 2. Build the Docker image using the following command:
-  ``` docker build -t el-proyecte-grande -f Dockerfile . ```
-3. Run the Docker container:
-   ``` docker run --name el-proyecte-grande-app --rm -dp 8080:8080 el-proyecte-grande ```
+  ```
+ docker build -t el-proyecte-grande -f Dockerfile .
+ ```
+4. Run the Docker container:
+   ```
+   docker run --name el-proyecte-grande-app --rm -dp 8080:8080 el-proyecte-grande
+    ```
    
 #### Accessing the Application
 Once the Docker container is running, you can access the application using a web browser:
